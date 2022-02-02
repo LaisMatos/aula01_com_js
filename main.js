@@ -1,5 +1,8 @@
 'use strict' //limita os erros de programação
 
+//comando para importar função de outro arquivo
+import{iniciarRange} from "./range.js";
+
     // func validação de dados
 function camposValidos (nome,altura,peso){
     return document.getElementById('formulario').reportValidity();
@@ -28,24 +31,47 @@ function classificarIMC(imc){
     }
     return mensagem;
 }
-    // func exibir resultado
-function mostrarResultado(){
-   
-    //variaveis locais
-    const nome =  document.getElementById('nome').value;
-    const altura = document.getElementById('altura').value;
-    const peso = document.getElementById('peso').value;
-    const resultado = document.getElementById('resultado');
+        // func exibir resultado
+    function mostrarResultado(){
+    
+        //variaveis locais
+        const nome =  document.getElementById('nome').value;
+        const altura = document.getElementById('altura').value;
+        const peso = document.getElementById('peso').value;
+        const resultado = document.getElementById('resultado');
 
-    if (camposValidos()){
-        
-        const imc= calcularIMC(altura,peso);
-        let mensagem= classificarIMC(imc);
-        
-        resultado.textContent= `${nome} , seu IMC é: ${imc.toFixed(2)} ${mensagem}`;
-    }else {
-        resultado.textContent=`Preencha todos os campos`;
+        if (camposValidos()){
+            
+            const imc= calcularIMC(altura,peso);
+            let mensagem= classificarIMC(imc);
+            
+            resultado.textContent= `${nome} , seu IMC é: ${imc.toFixed(2)} ${mensagem}`;
+        }else {
+            resultado.textContent=`Preencha todos os campos`;
         }
-}
+    }
+    
+    //capturar ações com <click>
+    document.getElementById('calcular').addEventListener('click',mostrarResultado);
+   
+    /*  FUNÇÂO INICIAR rANGE
+        const IniciarRange=(idRange)=>{
 
-document.getElementById('calcular').addEventListener('click',mostrarResultado);
+             //declarão de variaveis e (????)
+        const range= document.getElementById(idRange)
+        const span= document.getElementById(`valor-${idRange}`)
+
+            //função AtualizarValor
+        const atualizarValor= () => span.textContent = range.valuerange.addEventListener('input',atualizarValor)
+        }
+    */
+
+    //variaveis para inicializar idRange
+    iniciarRange('altura')
+    iniciarRange('peso')
+
+
+    /*  ############ Anotações ############
+        <textContent>, serve para obtermos o valor de onde (????)
+        <'valor-${idRange}'> (??????)
+    */
