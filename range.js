@@ -8,8 +8,10 @@
         const span= document.getElementById(`valor-${idRange}`)
 
         //função AtualizarValor
-        const atualizarValor= () => span.textContent = range.valuerange.addEventListener('input',atualizarValor)
-     
+        const atualizarValor= () => span.textContent = range.value;
+        
+        // (????)
+        range.addEventListener('input',atualizarValor)
     }
 
     export{

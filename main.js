@@ -54,18 +54,6 @@ function classificarIMC(imc){
     //capturar ações com <click>
     document.getElementById('calcular').addEventListener('click',mostrarResultado);
    
-    /*  FUNÇÂO INICIAR rANGE
-        const IniciarRange=(idRange)=>{
-
-             //declarão de variaveis e (????)
-        const range= document.getElementById(idRange)
-        const span= document.getElementById(`valor-${idRange}`)
-
-            //função AtualizarValor
-        const atualizarValor= () => span.textContent = range.valuerange.addEventListener('input',atualizarValor)
-        }
-    */
-
     //variaveis para inicializar idRange
     iniciarRange('altura')
     iniciarRange('peso')
